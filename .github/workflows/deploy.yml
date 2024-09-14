@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main  # Ou qualquer branch que você queira usar para deploy
+      - main
 
 jobs:
   deploy:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Copy files via SSH
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_STARTER_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
